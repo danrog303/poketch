@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Poketch: Homepage</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="mt-4 p-5 text-white rounded bg-pokemon">
+            <h1>Poketch</h1>
+            <p>Pokémon tracking tool.</p>
+            <a th:href="@{/auth/login}" class="btn btn-login btn-lg">Log in</a>
+            <a th:href="@{/auth/register}" class="btn btn-register bg-pokemon btn-lg">Register now</a>
+        </div>
+
+        <div class="mt-4 p-5 rounded faq-display">
+            <article class="py-3">
+                <h2>What is Poketch?</h2>
+                Poketch is a tool for tracking the progress of completing the so-called
+                Living Pokédex in games in the Pokémon series.
+                You can check <a href="https://bulbapedia.bulbagarden.net/wiki/Living_Pok%C3%A9dex">this link</a>,
+                if you want to learn more about the Living Dex Challenge.
+            </article>
+
+            <article class="py-3">
+                <h2>Do I need to create an account to use Poketch?</h2>
+                Yes, to store your Pokémon collection, you need to create a free Poketch account.
+            </article>
+
+            <article class="py-3">
+                <h2>What are current features of Poketch?</h2>
+                <ul>
+                    <li>Storing data about owned Pokémon</li>
+                    <li>Statistics page: displays statistics of user's Pokémon collection</li>
+                    <li>Box utility tool: for calculating position of Pokémon in their PC Box</li>
+                </ul>
+            </article>
+
+            <article class="py-3">
+                <h2>Is Poketch open source?</h2>
+                Yes, you can get source code by visiting <a href="github.com/poketch-spring">github.com/danrog303/poketch-spring</a>.
+            </article>
+        </div>
+    </div>
+</body>
+</html>

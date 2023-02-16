@@ -1,0 +1,131 @@
+/* - - - - - - - - - - - - - - - /
+/ - - - COMMON STYLES - -  - - - /
+/ - - - - - - - - - - - - - - - */
+
+ul {
+    margin: 0;
+}
+
+.bg-pokemon {
+    background-color: #cc0000;
+}
+
+.bg-pokemon a, .bg-pokemon a:link, .bg-pokemon a:visited, .bg-pokemon input.btn-link {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-brand {
+    vertical-align: center;
+}
+
+.navbar-brand img {
+    width: 32px;
+}
+
+#main-footer {
+    text-align: center;
+    color: #777777;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+.navbar,
+.pagination .active,
+.table thead {
+    color: white;
+    background: #cc0000;
+}
+
+.pagination a {
+    color: black;
+}
+
+.navbar a,
+.pagination a.active {
+    color: white;
+    border: none;
+}
+
+.navbar a:hover {
+    color: #eeeeee;
+}
+
+.g-recaptcha {
+    display: inline-block;
+}
+
+/* - - - - - - - - - - - - -  - - /
+/ - - POKEMON LIST STYLES - - - - /
+/ - - - - - - - - - - - - - - - -*/
+
+.pagination {
+    color: black;
+    border-color: #444444;
+}
+
+#pokemon-list-table thead {
+    border-color: #444444;
+}
+
+#pokemon-list-table {
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #dadada;
+}
+
+.inactive-row {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.inactive-row button, .inactive-row input {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+.inactive-row img {
+    opacity: 0.35;
+}
+
+/* - - - - - - - - - - - - - - - /
+/ - - BOX UTILITY STYLES - - - - /
+/ - - - - - - - - - - - - - - - */
+
+#box-utility-table td {
+    width: 40px;
+    height: 40px;
+    border-collapse: collapse;
+    border: 1px solid #777777;
+}
+
+#box-utility-table {
+    margin-bottom: 20px;
+}
+
+/* - - - - - - - - - - - - - - - /
+/ - - - HOMEPAGE STYLES - - - - /
+/ - - - - - - - - - - - - - -  */
+
+.btn-register {
+    background: #ff4444;
+}
+
+.btn-register:hover {
+    background: #ff6666;
+}
+
+.btn-login {
+    background: #F33C3C;
+}
+
+.btn-login:hover {
+    background: #E33C3C;
+}
+
+.faq-display {
+    background-color: #dddddd;
+    border: 1px solid #aaaaaa;
+}
+
+.faq-display a, .faq-display a:visited, .faq-display a:link {
+    color: black;
+}

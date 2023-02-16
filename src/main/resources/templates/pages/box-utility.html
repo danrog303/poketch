@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Poketch: Pokemon List</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Box utility tool</h1>
+
+    <div class="alert alert-secondary">
+        <p>
+            <strong>What does the "Box utility tool" do?</strong>
+        </p>
+        <p>
+            It allows to calculate in which box you should put your Pokémon, if you want to
+            store Pokémon in their national dex order.
+
+            For example, Bulbasaur should be put in Box 1 in first row and first column,
+            Venusaur in Box 1 in first row and second column - and so on.
+        </p>
+    </div>
+
+    <table id="box-utility-table">
+        <strong>Box nr <span id="box-utility-box-number">???</span></strong>
+
+        <tr th:each="rowNumber: ${#numbers.sequence(0, 4)}">
+            <td th:each="columnNumber: ${#numbers.sequence(0, 5)}">
+            </td>
+        </tr>
+    </table>
+
+    <form id="box-utility-form">
+        <div class="input-group">
+            <label class="input-group-text" for="box-utility-input">Enter Pokémon number:</label>
+            <input type="number" min="1" id="box-utility-input" class="form-control">
+            <input type="submit" value="Check box position" class="btn btn-sm btn-success" />
+        </div>
+    </form>
+
+    <script th:src="@{/public/js/box-utility-tool.js}"></script>
+</div>
+</body>
+</html>

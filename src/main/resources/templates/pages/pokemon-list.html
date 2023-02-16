@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Poketch: Pokemon List</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <nav th:id="main-navbar">
+            Generation:
+            <ul class="pagination">
+                <li class="page-item" th:each="generation: ${generations}">
+                    <a class="page-link"
+                       th:classappend="${currentGeneration == generation} ? 'active'"
+                       th:href="@{/pokemon/list(generation=${generation})}"
+                       th:text="${generation}" />
+                </li>
+            </ul>
+        </nav>
+
+        <table class="table table-bordered" id="pokemon-list-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>image</th>
+                    <th>name</th>
+                    <th>generation</th>
+                    <th>type</th>
+                    <th>article</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pokemon: ${pokemonCollection}"
+                    th:classappend="${pokemon.owned == false} ? 'inactive-row'"
+                    th:id="'pokemon-'+${pokemon.pokedexNumber}">
+                    <td th:text="${pokemon.pokedexNumber}" />
+
+                    <td>
+                        <img class="img-fluid"
+                             th:unless="${pokemon.imageUrl == null}"
+                             th:alt="${pokemon.name}"
+                             th:src="@{${pokemon.imageUrl}}" />
+                        <span th:if="${pokemon.imageUrl == null}">no image</span>
+                    </td>
+
+                    <td th:text="${pokemon.name}" />
+                    <td th:text="${pokemon.generation}" />
+
+                    <td th:text="${pokemon.typeString}" />
+
+                    <td>
+                        <a th:if="${pokemon.articleUrl != null}" th:href="${pokemon.articleUrl}" target="_blank">(link)</a>
+                        <span th:if="${pokemon.articleUrl == null}">(no link)</span>
+                    </td>
+
+                    <td>
+                        <form method="POST" action="#" th:action="@{/pokemon/add-ownership}" th:unless="${pokemon.owned}">
+                            <input type="hidden" th:value="${pokemon.pokedexNumber}" name="pokemonNumber" />
+                            <input type="submit" class="btn btn-sm btn-success" value="set as owned">
+                        </form>
+
+                        <form method="POST" action="#" th:action="@{/pokemon/remove-ownership}" th:if="${pokemon.owned}">
+                            <input type="hidden" th:value="${pokemon.pokedexNumber}" name="pokemonNumber" />
+                            <input type="submit" class="btn btn-sm btn-danger" value="set as not owned" />
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

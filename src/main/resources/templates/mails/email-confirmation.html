@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all">Confirmation email</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p>
+    <b>Thank you for joining Poketch!</b>
+</p>
+<p>
+    Please verify your email by going to <a th:href="${confirmationLink}" th:text="${confirmationLink}" />
+</p>
+<p>
+    If you didn't create any account, you can ignore this message, no further action is required.
+</p>
+</body>
+</html>

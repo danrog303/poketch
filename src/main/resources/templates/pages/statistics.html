@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Poketch: statistics</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div th:each="stat: ${statistics}" class="mt-4 p-5 alert alert-secondary">
+        <h2>Generation <span th:text="${stat.getGenerationNumber()}" /></h2>
+
+        <p>
+            Completion rate:
+            <span th:text="${#numbers.formatDecimal(stat.getCompletionRate() * 100, 0, 0)} + '%'" />
+        </p>
+    </div>
+
+    <div class="mt-4 p-5 alert alert-secondary">
+        <h2>All generations</h2>
+
+        <p>
+            Completion rate:
+            <span th:text="${#numbers.formatDecimal(globalStatistics.getCompletionRate() * 100, 0, 0)} + '%'" />
+        </p>
+    </div>
+</body>
+</html>

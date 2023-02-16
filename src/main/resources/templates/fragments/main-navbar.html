@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Top header</title>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<th:block th:fragment="main-navbar">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-pokemon">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#main-navbar-toggle"
+                    aria-controls="main-navbar-toggle" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-navbar-toggle">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/public/img/pokeball.png}" alt="pokeball" />
+                    Poketch
+                </a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <th:block sec:authorize="isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/pokemon/list}">Pokemon tracker</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/extras/box-utility-tool}">Box utility tool</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/statistics}">Living dex statistics</a>
+                        </li>
+                    </th:block>
+                </ul>
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <form th:action="@{/auth/logout}" method="POST" sec:authorize="isAuthenticated()">
+                            <input type="submit" class="btn btn-link" value="(Logout)" />
+                        </form>
+
+                        <a class="nav-link" th:href="@{/auth/login}" sec:authorize="isAnonymous()">(Login)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</th:block>
+</body>
+</html>
