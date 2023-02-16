@@ -1,11 +1,9 @@
 # poketch
+![ci](https://github.com/danrog303/poketch/actions/workflows/ci.yml/badge.svg)
+![license](https://shields.io/github/license/danrog303/poketch)
+
 >  Spring Boot rewrite of my old Django project. 
-> Also known as "yet another Pokémon tracking tool".
-
-
-## ⚙️ Working app
-You can check https://google.com for active, production-ready instance of Poketch.
-
+> Also known as "yet another Pokémon tracking tool".    
 
 ## 👨‍💼 What does it exactly do?
 Poketch is a tool for tracking the progress of completing the so-called
